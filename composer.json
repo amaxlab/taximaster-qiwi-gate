@@ -1,6 +1,6 @@
 {
-    "name": "fabpot/silex-skeleton",
-    "description": "A pre-configured skeleton for the Silex microframework",
+    "name": "amaxlab/taximaster-qiwi-gate",
+    "description": "Gateway for accepting payments from qiwi to taximaster",
     "license": "MIT",
     "type": "project",
     "require": {
@@ -21,10 +21,20 @@
         "symfony/security": "~2.8|^3.0",
         "symfony/translation": "~2.8|^3.0",
         "symfony/twig-bridge": "~2.8|^3.0",
-        "symfony/validator": "~2.8|^3.0"
+        "symfony/validator": "~2.8|^3.0",
+        "symfony/serializer": "^3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.7",
+        "sorien/silex-pimple-dumper": "~2.0"
     },
     "autoload": {
         "psr-0": { "": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     },
     "extra": {
         "branch-alias": {
