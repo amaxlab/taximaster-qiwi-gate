@@ -17,8 +17,8 @@ class QiwiServiceProvider implements ServiceProviderInterface
      */
     public function register(Container $pimple)
     {
-        $pimple['service.qiwi'] = function () {
-            return new QiwiService();
+        $pimple['service.qiwi'] = function ($pimple) {
+            return new QiwiService($pimple);
         };
     }
 }
