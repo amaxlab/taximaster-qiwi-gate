@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 /**
@@ -30,12 +31,18 @@ class QiwiRequestType extends AbstractType
                 'constraints' => [new NotBlank()],
                 'choices' => ['check' => 'check', 'pay' => 'pay']
             ])
-            ->add('txn_id', IntegerType::class)
+            ->add('txn_id', IntegerType::class, [
+                'constraints' => [new NotBlank()],
+            ])
             ->add('txn_date', DateTimeType::class, [
                 'date_format' => 'yyyyMMddhhiiss'
             ])
-            ->add('account')
-            ->add('sum', MoneyType::class)
+            ->add('account', TextType::class, [
+                'constraints' => [new NotBlank(), new Length(['min' => 1, 'max' => 50])],
+            ])
+            ->add('sum', MoneyType::class, [
+                'constraints' => [new NotBlank()],
+            ])
         ;
     }
 
