@@ -20,7 +20,7 @@ class QiwiRequest
     protected $txnId;
 
     /**
-     * @var DateTime
+     * @var string
      */
     protected $txnDate;
 
@@ -75,7 +75,7 @@ class QiwiRequest
     }
 
     /**
-     * @return DateTime
+     * @return string
      */
     public function getTxnDate()
     {
@@ -83,7 +83,7 @@ class QiwiRequest
     }
 
     /**
-     * @param DateTime $txnDate
+     * @param string $txnDate
      *
      * @return $this
      */

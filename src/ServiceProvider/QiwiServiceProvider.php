@@ -31,8 +31,8 @@ class QiwiServiceProvider implements ServiceProviderInterface
             return new CheckCommandHandler();
         };
 
-        $pimple['qiwi.command.handler.pay'] = function () {
-            return new PayCommandHandler();
+        $pimple['qiwi.command.handler.pay'] = function ($pimple) {
+            return new PayCommandHandler($pimple['tmapi.manager']);
         };
 
         $pimple['qiwi.request.checker.driver'] = function ($pimple) {

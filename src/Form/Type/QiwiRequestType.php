@@ -5,7 +5,6 @@ namespace Form\Type;
 use Model\QiwiRequest;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -33,8 +32,8 @@ class QiwiRequestType extends AbstractType
             ->add('txn_id', TextType::class, [
                 'constraints' => [new NotBlank()],
             ])
-            ->add('txn_date', DateTimeType::class, [
-                'date_format' => 'yyyyMMddhhiiss'
+            ->add('txn_date', TextType::class, [
+                'constraints' => [new Length(14)],
             ])
             ->add('account', TextType::class, [
                 'constraints' => [new NotBlank(), new Length(['min' => 1, 'max' => 50])],
