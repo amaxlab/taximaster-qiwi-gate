@@ -18,3 +18,7 @@ $app->register(new WebProfilerServiceProvider(), array(
 ));
 
 $app->register(new Sorien\Provider\PimpleDumpProvider());
+
+$app['tmapi.manager'] = function () {
+    return new Mock\TMAPIMock();
+};

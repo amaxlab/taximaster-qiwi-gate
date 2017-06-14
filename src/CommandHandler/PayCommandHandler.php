@@ -20,7 +20,7 @@ class PayCommandHandler implements CommandHandlerInterface
      */
     private $manager;
 
-    public function __construct(Manager $manager)
+    public function __construct($manager)
     {
         $this->manager = $manager;
     }

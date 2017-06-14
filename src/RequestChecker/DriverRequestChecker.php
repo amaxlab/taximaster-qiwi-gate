@@ -27,7 +27,7 @@ class DriverRequestChecker implements RequestCheckerInterface
      * @param Manager $manager
      * @param string $accountFormat
      */
-    public function __construct(Manager $manager, $accountFormat)
+    public function __construct($manager, $accountFormat)
     {
         $this->manager = $manager;
         $this->accountFormat = $accountFormat;
