@@ -12,11 +12,6 @@ abstract class AbstractQiwiException extends Exception
     /**
      * @var int
      */
-    protected $code = 400;
-
-    /**
-     * @var int
-     */
     protected $qiwiCode = 300;
 
     /**

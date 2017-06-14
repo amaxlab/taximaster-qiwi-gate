@@ -16,6 +16,6 @@ class CheckCommandHandler implements CommandHandlerInterface
      */
     public function handle(QiwiRequest $request)
     {
-        return new QiwiResponse();
+        return (new QiwiResponse())->setResult(0)->setOsmpTxnId($request->getTxnId());
     }
 }
