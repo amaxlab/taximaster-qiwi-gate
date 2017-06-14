@@ -14,7 +14,7 @@ $app->get('/', function () use ($app) {
     ;
 
     if (!$form->isValid()) {
-        return new Response($app['serializer']->serialize((new QiwiResponse())->setResult(300), 'xml'), Response::HTTP_BAD_REQUEST);
+        return new Response($app['serializer']->serialize((new QiwiResponse())->setResult(300), 'xml'));
     }
 
     return $app['serializer']->serialize($app['service.qiwi']->handleRequest($form->getData()), 'xml');
@@ -27,5 +27,5 @@ $app->error(function (\Exception $e, Request $request, $code) use ($app) {
         return;
     }
 
-    return new Response($app['serializer']->serialize((new QiwiResponse())->setResult(1), 'xml'), $code);
+    return new Response($app['serializer']->serialize((new QiwiResponse())->setResult(1), 'xml'));
 });
