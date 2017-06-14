@@ -8,11 +8,12 @@ use Symfony\Component\HttpFoundation\Response;
 
 /** @var $app Application */
 $app->get('/', function () use ($app) {
-    $form = $app['form.factory']->create(QiwiRequestType::class);
-    $form->submit($app['request_stack']->getCurrentRequest()->query->all());
+    $form = $app['form.factory']
+        ->create(QiwiRequestType::class)
+        ->submit($app['request_stack']->getCurrentRequest()->query->all())
+    ;
 
     if (!$form->isValid()) {
-        //dump($form->getErrors(true, false));
         return new Response($app['serializer']->serialize((new QiwiResponse())->setResult(300), 'xml'), Response::HTTP_BAD_REQUEST);
     }
 
