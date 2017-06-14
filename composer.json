@@ -1,5 +1,5 @@
 {
-    "name": "amaxlab/taximaster-qiwi-gate",
+    "name": "amaxlab/taximaster-qiwi-payment-gate",
     "description": "Gateway for accepting payments from qiwi to taximaster",
     "license": "MIT",
     "type": "project",
