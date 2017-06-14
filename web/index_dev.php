@@ -18,5 +18,8 @@ Debug::enable();
 
 $app = require __DIR__.'/../src/app.php';
 require __DIR__.'/../config/dev.php';
+if (fileExists(__DIR__.'/../config/local.php')) {
+    require __DIR__.'/../config/local.php';
+}
 require __DIR__.'/../src/controllers.php';
 $app->run();
