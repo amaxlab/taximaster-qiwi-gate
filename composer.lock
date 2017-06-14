@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "59f1e8f1a97612e294e172e2343005bc",
+    "content-hash": "e4275001c79c9159635d4fb02cb728a6",
     "packages": [
         {
             "name": "it2k/tmapi",
-            "version": "v1.1.3",
+            "version": "v1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/it2k/tmapi.git",
-                "reference": "1b73bcbcf9c0c29bc9d59bff753671fd96cde8c4"
+                "reference": "99dffb3ea716cf60dc014be47e8d0224a1dee710"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/it2k/tmapi/zipball/1b73bcbcf9c0c29bc9d59bff753671fd96cde8c4",
-                "reference": "1b73bcbcf9c0c29bc9d59bff753671fd96cde8c4",
+                "url": "https://api.github.com/repos/it2k/tmapi/zipball/99dffb3ea716cf60dc014be47e8d0224a1dee710",
+                "reference": "99dffb3ea716cf60dc014be47e8d0224a1dee710",
                 "shasum": ""
             },
             "require": {
@@ -51,7 +51,7 @@
                 "taxi",
                 "taximaster"
             ],
-            "time": "2017-06-14T15:56:30+00:00"
+            "time": "2017-06-14T18:27:49+00:00"
         },
         {
             "name": "monolog/monolog",
