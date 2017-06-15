@@ -14,7 +14,7 @@ $app->get('/', function () use ($app) {
     ;
 
     if (!$form->isValid()) {
-        return new Response($app['serializer']->serialize((new QiwiResponse())->setResult(300), 'xml'));
+        return new Response($app['serializer']->serialize($app['qiwi.transformer.qiwi_response']->transform($form->getErrors(true, false)), 'xml'));
     }
 
     return $app['serializer']->serialize($app['service.qiwi']->handleRequest($form->getData()), 'xml');
@@ -22,10 +22,9 @@ $app->get('/', function () use ($app) {
 ->bind('homepage')
 ;
 
-$app->error(function (\Exception $e, Request $request, $code) use ($app) {
-    if ($app['debug']) {
-        return;
-    }
-
-    return new Response($app['serializer']->serialize((new QiwiResponse())->setResult(1), 'xml'));
+$app->error(function (\Exception $e) use ($app) {
+//    if ($app['debug']) {
+//        return;
+//    }
+    return new Response($app['serializer']->serialize(($app['qiwi.transformer.qiwi_response']->transform($e)), 'xml'));
 });

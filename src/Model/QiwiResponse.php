@@ -7,6 +7,8 @@ namespace Model;
  */
 class QiwiResponse
 {
+    const RESPONSE_ERROR = 300;
+
     /**
      * @var int
      */

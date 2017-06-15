@@ -9,6 +9,7 @@ use Pimple\ServiceProviderInterface;
 use RequestChecker\DriverRequestChecker;
 use RequestChecker\SumRequestChecker;
 use Service\QiwiService;
+use Transformer\QiwiResponseTransformer;
 
 /**
  * @author Egor Zyuskin <ezyuskin@amaxlab.ru>
@@ -41,6 +42,10 @@ class QiwiServiceProvider implements ServiceProviderInterface
 
         $pimple['qiwi.request.checker.sum'] = function () {
             return new SumRequestChecker();
+        };
+
+        $pimple['qiwi.transformer.qiwi_response'] = function () {
+            return new QiwiResponseTransformer();
         };
     }
 }
