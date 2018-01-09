@@ -3,6 +3,7 @@
 namespace CommandHandler;
 
 use It2k\TMApi\Manager;
+use Model\PayProvider;
 use Model\QiwiRequest;
 use Model\QiwiResponse;
 
@@ -20,9 +21,20 @@ class PayCommandHandler implements CommandHandlerInterface
      */
     private $manager;
 
-    public function __construct($manager)
+    /**
+     * @var PayProvider
+     */
+    private $payProvider;
+
+    /**
+     * PayCommandHandler constructor.
+     * @param Manager $manager
+     * @param PayProvider $payProvider
+     */
+    public function __construct(Manager $manager, PayProvider $payProvider)
     {
         $this->manager = $manager;
+        $this->payProvider = $payProvider;
     }
 
     /**

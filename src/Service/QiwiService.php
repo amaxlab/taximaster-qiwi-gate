@@ -32,6 +32,7 @@ class QiwiService
      * @param QiwiRequest $request
      * @return QiwiResponse
      * @throws BadCommandHandlerException
+     * @throws BadRequestCheckerException
      */
     public function handleRequest(QiwiRequest $request)
     {
