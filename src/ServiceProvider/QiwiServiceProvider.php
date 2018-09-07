@@ -33,7 +33,7 @@ class QiwiServiceProvider implements ServiceProviderInterface
         };
 
         $pimple['qiwi.command.handler.pay'] = function ($pimple) {
-            return new PayCommandHandler($pimple['tmapi.manager']);
+            return new PayCommandHandler($pimple['tmapi.manager'], $pimple['config.payment.hold_percent']);
         };
 
         $pimple['qiwi.request.checker.driver'] = function ($pimple) {

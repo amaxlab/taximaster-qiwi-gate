@@ -6,6 +6,7 @@
 //$app['twig.options'] = array('cache' => __DIR__.'/../var/cache/twig');
 
 $app['config.account.format'] = '/^\d/';
+$app['config.payment.hold_percent'] = 5;
 $app['config.tmapi'] = [
     'schema' => 'https',
     'ip' => '127.0.0.1',

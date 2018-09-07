@@ -15,14 +15,28 @@ class PayCommandHandler implements CommandHandlerInterface
 
     const OPERATION_TYPE = 'receipt';
 
+    const SUM_ROUND = 2;
+
+
     /**
      * @var Manager
      */
     private $manager;
 
-    public function __construct($manager)
+    /**
+     * @var float
+     */
+    private $paymentHoldPercent;
+
+    /**
+     * PayCommandHandler constructor.
+     * @param Manager $manager
+     * @param float $paymentHoldPercent
+     */
+    public function __construct($manager, $paymentHoldPercent)
     {
         $this->manager = $manager;
+        $this->paymentHoldPercent = $paymentHoldPercent;
     }
 
     /**
@@ -35,7 +49,7 @@ class PayCommandHandler implements CommandHandlerInterface
         if (!$transactionId) {
             $transactionId = $this->manager->createDriverOperation(
                 $request->getAccount(),
-                $request->getSum(),
+                $this->calcOperSum($request->getSum()),
                 PayCommandHandler::OPERATION_TYPE,
                 sprintf(PayCommandHandler::OPERATION_NAME, $request->getTxnId())
             );
@@ -68,5 +82,14 @@ class PayCommandHandler implements CommandHandlerInterface
         }
 
         return false;
+    }
+
+    /**
+     * @param float $sum
+     * @return float
+     */
+    protected function calcOperSum($sum)
+    {
+        return round($sum - ($sum * $this->paymentHoldPercent / 100), PayCommandHandler::SUM_ROUND);
     }
 }
