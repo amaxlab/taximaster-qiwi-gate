@@ -52,6 +52,7 @@ class PayCommandHandler implements CommandHandlerInterface
     /**
      * @param string $account
      * @param string $time
+     * @param string $tnxId
      * @return bool|int
      */
     protected function checkExistTransactionId($account, $time, $tnxId)
