@@ -35,6 +35,8 @@ class DriverRequestChecker implements RequestCheckerInterface
 
     /**
      * @param QiwiRequest $request
+     * @throws BadAccountFormatException
+     * @throws AccountNotFoundException
      */
     public function check(QiwiRequest $request)
     {
