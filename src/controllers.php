@@ -1,9 +1,7 @@
 <?php
 
 use Form\Type\QiwiRequestType;
-use Model\QiwiResponse;
 use Silex\Application;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 define('SERIALIZER_FORMAT', 'xml');
